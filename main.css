@@ -1,0 +1,95 @@
+.card {
+  width: 300px;
+  padding: 20px;
+}
+.status {
+  border-radius: 20px;
+  padding: 5px 15px;
+  background-color: green;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.status-change-button {
+  background: transparent;
+  border: none;
+}
+
+.input-task {
+  display: none;
+}
+
+/* Additions for specific card styles */
+
+/* To Do Card (Red) */
+.card:nth-child(1) .card-title {
+  background-color: #ff4d4d; /* Red */
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.card:nth-child(1) .status {
+  background-color: #ff4d4d; /* Red for tasks */
+}
+
+/* In Progress Card (Yellow) */
+.card:nth-child(2) .card-title {
+  background-color: #ffd966; /* Yellow */
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.card:nth-child(2) .status {
+  background-color: #ffd966; /* Yellow for tasks */
+}
+
+/* Completed Card (Green) */
+.card:nth-child(3) .card-title {
+  background-color: #4caf50; /* Green */
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.card:nth-child(3) .status {
+  background-color: #4caf50; /* Green for tasks */
+}
+
+/* Add Button Styling */
+.add-task-button,
+.toggle-input-button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 20px; /* Rounded buttons */
+  padding: 10px 20px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.add-task-button:hover,
+.toggle-input-button:hover {
+  background-color: gray;
+}
+body {
+  background-image: url("slika1.jpeg");
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  color: white;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+}
+.custom-text {
+  margin-top: 80px;
+  color: rgb(0, 0, 0);
+  font-size: 1.25rem;
+  text-align: center;
+  margin-bottom: 200px;
+}
