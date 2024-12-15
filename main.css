@@ -25,7 +25,6 @@
 /* To Do Card (Red) */
 .card:nth-child(1) .card-title {
   background-color: #ff4d4d; /* Red */
-  color: white;
   padding: 10px;
   border-radius: 5px;
 }
@@ -37,7 +36,6 @@
 /* In Progress Card (Yellow) */
 .card:nth-child(2) .card-title {
   background-color: #ffd966; /* Yellow */
-  color: white;
   padding: 10px;
   border-radius: 5px;
 }
@@ -49,7 +47,6 @@
 /* Completed Card (Green) */
 .card:nth-child(3) .card-title {
   background-color: #4caf50; /* Green */
-  color: white;
   padding: 10px;
   border-radius: 5px;
 }
@@ -85,11 +82,25 @@ body {
   margin: 0;
   padding: 0;
   height: 100vh;
+  background-attachment: fixed;
 }
 .custom-text {
-  margin-top: 80px;
+  padding-top: 80px;
   color: rgb(0, 0, 0);
   font-size: 1.25rem;
   text-align: center;
-  margin-bottom: 200px;
+  margin-bottom: 150px;
+}
+
+.validation-message {
+  display: none;
+}
+
+.task-container {
+  max-height: 200px;
+  overflow: auto;
+}
+
+.main-container {
+  max-width: 99%;
 }

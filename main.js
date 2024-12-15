@@ -1,17 +1,14 @@
 const cards = [
   {
     title: "To do",
-    text: " ",
     cardId: 1,
   },
   {
     title: "In progress",
-    text: " ",
     cardId: 2,
   },
   {
     title: "Completed",
-    text: " ",
     cardId: 3,
   },
 ];
@@ -46,8 +43,6 @@ arrayList = [
 
 const cardsList = document.getElementById("cards-list");
 function deleteItem(id) {
-  console.log(id);
-
   const index = arrayList.findIndex((item) => item.id === id); // Find the index by id
   if (index !== -1) {
     // If the item exists
@@ -64,12 +59,12 @@ function moveItem(id, statusId) {
   if (index !== -1) {
     switch (statusId) {
       case 1:
-        arrayList[index].statusId = 2; // Update the name property of the object
+        arrayList[index].statusId = statusId + 1; // Update the name property of the object
         updateView();
         break;
 
       case 2:
-        arrayList[index].statusId = 3; // Update the name property of the object
+        arrayList[index].statusId = statusId + 1; // Update the name property of the object
         updateView();
         break;
 
@@ -83,13 +78,13 @@ function updateView() {
   cardsList.innerHTML = "";
   cards.forEach((card) => {
     const cardElement = document.createElement("div");
-    cardElement.className = "card mx-3";
+    cardElement.className = "card col-10 col-md-5 col-lg-3 m-3";
 
     // Build the card's content
     let cardContent = `
         <div class="card-body">
-          <h5 class="card-title">${card.title}</h5>
-          <p class="card-text">${card.text}</p>
+          <h5 class="card-title text-light mb-3">${card.title}</h5>
+          <div class="task-container">
       `;
 
     // Add related items from arrayList
@@ -116,10 +111,16 @@ function updateView() {
         cardContent += `</div></div>`;
       }
     });
-
+    cardContent += `</div>`;
     if (card.cardId == 1) {
       cardContent += `<div id="button-container" class="text-center">
-        <button id="add-task-button" onclick="addItem()">Add</button>
+        <button 
+          id="add-task-button"
+          class="add-task-button"
+          onclick="addItem()"
+          >
+          Add
+        </button>
         <button 
           id="toggle-input-button"
           class="toggle-input-button mt-3" 
@@ -127,7 +128,19 @@ function updateView() {
           >
           Add task
         </button>
-        <input id="input-task" class="input-task type="text" placeholder="Enter task">
+        <input 
+          id="input-task" 
+          class="form-control input-task mt-3 
+          type="text" 
+          placeholder="Enter task"
+          >
+        <div 
+          id="validation-message" 
+          class="text-danger validation-message 
+          text-start"
+          >
+          Field cannot be empty.
+        </div>
       </div>
       `;
     }
@@ -158,21 +171,27 @@ function showInput() {
   } else {
     input.style.display = "none";
     toggleButton.textContent = "Add task";
-    toggleButton.innerHTML += `<i class="bi bi-plus-lg"></i>`;
+    toggleButton.innerHTML += `<i class="bi bi-plus-lg ms-2"></i>`;
     addButton.style.display = "none";
   }
 }
 
 function addItem() {
+  const regex = /^\s*$/;
   var newId = arrayList.length;
   var value = document.getElementById("input-task").value;
+  var validation = document.getElementById("validation-message");
 
-  arrayList.push({
-    id: newId,
-    statusId: 1,
-    description: value,
-  });
-  updateView();
+  if (regex.test(value)) {
+    validation.style.display = "block";
+  } else {
+    arrayList.push({
+      id: newId,
+      statusId: 1,
+      description: value,
+    });
+    updateView();
+  }
 }
 
 updateView();
