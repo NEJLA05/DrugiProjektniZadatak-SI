@@ -20,48 +20,45 @@
   display: none;
 }
 
-/* Additions for specific card styles */
-
-/* To Do Card (Red) */
 .card:nth-child(1) .card-title {
-  background-color: #ff4d4d; /* Red */
+  background-color: #ff4d4d; 
   padding: 10px;
   border-radius: 5px;
 }
 
 .card:nth-child(1) .status {
-  background-color: #ff4d4d; /* Red for tasks */
+  background-color: #ff4d4d; 
 }
 
-/* In Progress Card (Yellow) */
+
 .card:nth-child(2) .card-title {
-  background-color: #ffd966; /* Yellow */
+  background-color: #ffd966; 
   padding: 10px;
   border-radius: 5px;
 }
 
 .card:nth-child(2) .status {
-  background-color: #ffd966; /* Yellow for tasks */
+  background-color: #ffd966; 
 }
 
-/* Completed Card (Green) */
+
 .card:nth-child(3) .card-title {
-  background-color: #4caf50; /* Green */
+  background-color: #4caf50; 
   padding: 10px;
   border-radius: 5px;
 }
 
 .card:nth-child(3) .status {
-  background-color: #4caf50; /* Green for tasks */
+  background-color: #4caf50; 
 }
 
-/* Add Button Styling */
+
 .add-task-button,
 .toggle-input-button {
   background-color: #007bff;
   color: white;
   border: none;
-  border-radius: 20px; /* Rounded buttons */
+  border-radius: 20px; 
   padding: 10px 20px;
   font-size: 14px;
   cursor: pointer;

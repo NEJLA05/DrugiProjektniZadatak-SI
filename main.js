@@ -37,16 +37,16 @@ arrayList = [
   {
     id: 4,
     statusId: 3,
-    description: "Buy food",
+    description: "Make the bed",
   },
 ];
 
 const cardsList = document.getElementById("cards-list");
 function deleteItem(id) {
-  const index = arrayList.findIndex((item) => item.id === id); // Find the index by id
+  const index = arrayList.findIndex((item) => item.id === id); 
   if (index !== -1) {
-    // If the item exists
-    arrayList.splice(index, 1); // Remove the item at the found index
+    
+    arrayList.splice(index, 1); 
     var element = document.getElementById("delete-" + id);
     element.remove();
   }
@@ -59,12 +59,12 @@ function moveItem(id, statusId) {
   if (index !== -1) {
     switch (statusId) {
       case 1:
-        arrayList[index].statusId = statusId + 1; // Update the name property of the object
+        arrayList[index].statusId = statusId + 1; 
         updateView();
         break;
 
       case 2:
-        arrayList[index].statusId = statusId + 1; // Update the name property of the object
+        arrayList[index].statusId = statusId + 1; 
         updateView();
         break;
 
@@ -80,14 +80,14 @@ function updateView() {
     const cardElement = document.createElement("div");
     cardElement.className = "card col-10 col-md-5 col-lg-3 m-3";
 
-    // Build the card's content
+    
     let cardContent = `
         <div class="card-body">
           <h5 class="card-title text-light mb-3">${card.title}</h5>
           <div class="task-container">
       `;
 
-    // Add related items from arrayList
+    
     arrayList.forEach((status) => {
       if (status.statusId === card.cardId) {
         cardContent += `<div id="delete-${status.id}" class="status mb-1">${status.description} <div>`;
@@ -144,14 +144,13 @@ function updateView() {
       </div>
       `;
     }
-    // Close the list and add a button
+   
     cardContent += `
     </div>`;
 
-    // Set the card's content
+    
     cardElement.innerHTML = cardContent;
 
-    // Append the card to the cardsList container
     cardsList.appendChild(cardElement);
   });
 
