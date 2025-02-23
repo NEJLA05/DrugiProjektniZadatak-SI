@@ -1,0 +1,6 @@
+Application Start
+
+-Add "Live Server" to "VS Code" extension
+-Click to run "Live Server"
+
+-Because of Firebase application has to be started on "localhost" instead from "file"
